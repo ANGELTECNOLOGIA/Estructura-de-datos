@@ -12,14 +12,14 @@ public class ArrayDosDADT<T> {
     }
 
     public void limpiar(T dato) {
-        for (int i = 0; i < ren; i++) {
-            for (int j = 0; j < col; j++) {
+        for(int i = 0; i < ren; i++) {
+            for(int j = 0; j < col; j++) {
                 datos[i][j] = dato;
             }
         }
     }
 
-    public int getRowsize() {
+    public int getRowSize() {
         return ren;
     }
 
@@ -28,35 +28,30 @@ public class ArrayDosDADT<T> {
     }
 
     public void setElemento(int ren, int col, T dato) {
-        if (ren >= 0 && ren < this.ren && col >= 0 && col < this.col) {
+        if(ren >= 0 && ren < this.ren && col >= 0 && col < this.col) {
             datos[ren][col] = dato;
         } else {
-            System.out.println("Índices fuera de rango.");
+            System.out.println("No existe esa posicion en el array");
         }
     }
 
     public T getElemento(int ren, int col) {
-        if (ren >= 0 && ren < this.ren && col >= 0 && col < this.col) {
+        if(ren >= 0 && ren < this.ren && col >= 0 && col < this.col) {
             return datos[ren][col];
         } else {
-            System.out.println("Índices fuera de rango.");
+            System.out.println("No existe esa posicion en el array");
             return null;
         }
     }
 
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < ren; i++) {
-            for (int j = 0; j < col; j++) {
-                sb.append(datos[i][j]);
-                if (j < col - 1) {
-                    sb.append(" --> ");
-                }
+        String res = "";
+        for(int i = 0; i < ren; i++) {
+            for(int j = 0; j < col; j++) {
+                res += datos[i][j] + " ";
             }
-            if (i < ren - 1) {
-                sb.append("\n");
-            }
+            res += "\n";
         }
-        return sb.toString();
+        return res;
     }
 }
